@@ -1,11 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Ingreso de Usuario</ion-title>
+    <!-- Logo a la izquierda -->
+    <ion-buttons slot="start">
+      <ion-img src="assets/img/logo-check-app.png" style="width: 60px; height: 60px;"></ion-img>
+    </ion-buttons>
+  
+    <!-- Título centrado -->
+    <ion-title style="text-align: center; font-size: 2rem;">
+      App Check
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-card>
+    <ion-card-header>
+      <ion-card-title>Iniciar Sesión</ion-card-title>
+    </ion-card-header>
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <ion-card-content>
         <ion-item>
@@ -16,7 +27,7 @@
             maxlength="8" 
             minlength="3" 
             required
-            placeholder="Ingresa aquí tu usuario" 
+            placeholder="Ingresa tu usuario" 
             autocomplete="off"
             name="username">
           </ion-input>
@@ -29,17 +40,23 @@
             type="password" 
             maxlength="4" 
             required
-            placeholder="Ingresa aquí tu contraseña" 
+            placeholder="Ingresa tu contraseña" 
             autocomplete="off"
             name="password">
           </ion-input>
         </ion-item>
         <ion-button expand="full" type="submit" [disabled]="!loginForm.valid">INGRESAR</ion-button>
-        <ion-button expand="full" color="secondary" (click)="goToCreateAccount()">Crear Cuenta Nueva</ion-button>
+        <ion-text color="medium">
+          <p class="ion-text-center">
+            <a (click)="goToResetPassword()">¿Olvidaste tu contraseña? Reestablecer aquí</a>
+          </p>
+        </ion-text>
+        <ion-text color="medium">
+          <p class="ion-text-center">
+            <a (click)="goToCreateAccount()">Crear cuenta nueva</a>
+          </p>
+        </ion-text>
       </ion-card-content>
     </form>
   </ion-card>
 </ion-content>
-
-
-
