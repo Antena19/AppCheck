@@ -45,9 +45,10 @@ export class ResetPasswordPage {
     console.log('Nombre de Usuario:', this.username);
     console.log('Nueva Contraseña:', this.newPassword);
 
-    // Verificar si el usuario existe
-    const userIndex = this.validUsers.findIndex(user => user.username === this.username);
+    // Verificar si el usuario existe (compara el nombre de usuario ingresaso con los que ya existen)
+    const userIndex = this.validUsers.findIndex(user => user.username === this.username); 
     
+    //Si el nombre ingresado coincide con uno existente, entonces...
     if (userIndex !== -1) {
       // Actualiza la contraseña del usuario
       this.validUsers[userIndex].password = this.newPassword;
