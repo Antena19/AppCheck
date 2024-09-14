@@ -14,13 +14,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" [fullscreen]="true">
   <h1 class="main-title">LOGIN</h1>
   <p class="subtitle">Inicia sesión para continuar</p>
   
   <ion-card class="login-card">
     <ion-card-content>
       <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+        <!-- USUARIO -->
         <ion-label>Usuario</ion-label>
         <ion-item>
           <ion-input 
@@ -34,6 +36,8 @@
             name="username">
           </ion-input>
         </ion-item>
+
+        <!-- CONTRASEÑA -->
         <ion-label>Contraseña</ion-label>
         <ion-item>
           <ion-input 
@@ -52,7 +56,7 @@
         </ion-button>
         <ion-text class="forgot-password">
           <p class="ion-text-center">
-            <a (click)="goToResetPassword()">¿Olvidaste tu contraseña? Reestablecer aquí</a>
+            <a (click)="goToResetPassword()">¿Olvidaste tu contraseña? Restablecer aquí</a>
           </p>
         </ion-text>
       </form>
