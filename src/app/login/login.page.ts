@@ -1,69 +1,107 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'; // Importa el Router de Angular
+import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage-angular'; // Importamos Storage
 
-// Definimos el componente de Angular
+interface User {
+  username: string;
+  password: string;
+}
+
 @Component({
-  selector: 'app-login', // Nombre del selector del componente
-  templateUrl: './login.page.html', // La URL del template HTML
-  styleUrls: ['./login.page.scss'], // La URL de los estilos de la página
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
-  // Almacenamos el nombre del usuario y el password en variables
   username: string = '';
   password: string = '';
+  validUsers: User[] = []; // Cambiamos a una variable de clase
 
-  constructor(private router: Router) { 
-    // El constructor de la clase recibe una instancia de `Router` como un parámetro inyectado.
+  constructor(
+    private router: Router,
+    private storage: Storage // Inyectamos Storage
+  ) {}
+
+  async ngOnInit() {
+    // Inicializamos el storage
+    await this.storage.create();
+    console.log('Storage inicializado.');
+
+    // Cargar usuarios del storage
+    this.validUsers = await this.storage.get('users') || []; // Asignar directamente aquí
+    console.log('Usuarios válidos cargados:', this.validUsers); // Verifica que se carguen los usuarios
+
+    // Precargar usuarios si el array está vacío
+    if (this.validUsers.length === 0) {
+      this.validUsers = [
+        { username: 'angelina', password: '1234' }, // Ejemplo de usuario
+        { username: 'palomita', password: '4321' }, // Otro usuario
+      ];
+      await this.storage.set('users', this.validUsers); // Guardar los usuarios predeterminados en el storage
+      console.log('Usuarios predeterminados agregados:', this.validUsers);
+    }
   }
 
+  // Método llamado al enviar el formulario
   onSubmit() {
-    this.login(); // Llama al método login al enviar el formulario
+    console.log('Formulario enviado.'); // Log para el envío del formulario
+    this.login();
   }
 
+  // Navega a la página para crear una nueva cuenta
   goToCreateAccount() {
-    // Navega a la página de crear cuenta nueva
-    this.router.navigate(['/create-account']);
+    console.log('Navegando a crear una cuenta nueva.');
+    this.router.navigate(['/registro']); // Asegúrate de que esta ruta sea correcta
   }
 
-  login() {
+  // Lógica de autenticación dentro del componente
+  async login() {
     // Limpiar espacios en blanco
     this.username = this.username.trim();
     this.password = this.password.trim();
 
-    console.log('Username:', this.username); // Verifica el nombre de usuario
-    console.log('Password:', this.password); // Verifica la contraseña
+    console.log('Username:', this.username);
+    console.log('Password:', this.password);
 
-    // Definimos los usuarios válidos para pruebas
-    const validUsers = [
-      { username: 'angelina', password: '1234' },
-      { username: 'palomita', password: '5678' }
-    ];
+    let foundUser = false;
 
-    // Verificamos si el usuario ingresado existe en la lista de usuarios válidos
-    const user = validUsers.find(user => user.username === this.username && user.password === this.password);
+    // Cargar usuarios del storage para asegurarse de tener la lista más actualizada
+    this.validUsers = await this.storage.get('users') || []; // Actualiza la lista de usuarios
 
-    if (user) {
-      // Navega a la página de inicio si las credenciales son correctas
-      this.router.navigate(['/home'], {
-        queryParams: { username: this.username }
-      });
+    // Verificar si el usuario existe en la lista de usuarios almacenados
+    for (const user of this.validUsers) {
+      console.log(`Comparando: ${user.username} con ${this.username} y ${user.password} con ${this.password}`);
+      if (user.username === this.username && user.password === this.password) {
+        foundUser = true;
+        console.log(`Usuario encontrado: ${user.username}`);
+        break; // Salir del bucle si se encuentra el usuario
+      }
+    }
+
+    if (foundUser) {
+      await this.storage.set('username', this.username);
+      console.log('Almacenando nombre de usuario en el storage:', this.username);
+      this.router.navigate(['/home']);
+      console.log('Inicio de sesión exitoso.');
     } else {
-      // Muestra un mensaje de error si las condiciones no se cumplen
       alert('Usuario o contraseña inválidos');
+      console.log('Error en inicio de sesión.'); 
     }
   }
 
-  ngOnInit() {
-    // Método que se ejecuta al inicializar el componente
-  }
-
-  // METODO PARA LIMPIAR INPUT
+  // Método para limpiar el input de usuario o contraseña
   clearInput(field: string) {
     if (field === 'username') {
       this.username = ''; // Vacía el campo de usuario
+      console.log('Campo de usuario limpiado.');
     } else if (field === 'password') {
       this.password = ''; // Vacía el campo de contraseña
+      console.log('Campo de contraseña limpiado.');
     }
+  }
+
+  goToResetPassword() {
+    console.log('Navegando a restablecer la contraseña.');
+    this.router.navigate(['/reset-password']);
   }
 }
