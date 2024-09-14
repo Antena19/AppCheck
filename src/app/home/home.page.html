@@ -1,108 +1,80 @@
-<ion-content [fullscreen]="true">
-  <!-- Header -->
-  <ion-header [translucent]="true">
-    <ion-toolbar>
-      <!-- Logo a la izquierda -->
-      <ion-buttons slot="start">
-        <ion-img src="assets/img/logo-check-app.png" style="width: 60px; height: 60px;"></ion-img>
-      </ion-buttons>
-  
-      <!-- Título centrado -->
-      <ion-title style="text-align: center; font-size: 2rem;">
-        App Check
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <!-- Saludo al usuario -->
-  <ion-item>
-    <ion-label class="welcome-message">Bienvenido {{username}}</ion-label>
-  </ion-item>
-
-  <!-- Navbar -->
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="custom-dark">
     <ion-buttons slot="start">
-      <ion-button href="/registro_asistencia">Registrar Asistencia</ion-button>
-      <ion-button href="/ver_asistencias">Ver Asistencias</ion-button>
-      <ion-button href="/reportes">Reportes</ion-button>
-      <ion-button href="/configuracion">Configuración</ion-button>
+      <ion-button>
+        <ion-img src="assets/img/logo-check-app.png" style="width: 30px; height: 30px;"></ion-img>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center white-text">CheckApp</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="menu" slot="icon-only" class="custom-menu-button"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
+</ion-header>
 
-  <!-- Registrar Asistencia -->
-  <ion-searchbar placeholder="Buscar"></ion-searchbar>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <h1 class="main-title">INICIO</h1>
+   <!-- Saludo al usuario -->
 
-  <!-- SECCIÓN DE FUNCIONALIDADES -->
-  <section class="funcionalidades" style="padding: 20px;">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="12">
-          <h2 style="text-align: center;">Automatiza tus procesos y gestión al instante con App Check</h2>
-        </ion-col>
-      </ion-row>
+    <ion-label class="welcome-message">Bienvenido {{username}}</ion-label>
 
-      <!-- Carousel de funcionalidades -->
-      <ion-row>
-        <ion-col size="12" size-md="6" size-lg="4" class="ion-padding">
-          <div class="card" style="max-width: 320px; margin: auto;">
-            <ion-img src="assets/img/icono1.png" alt="Tiempo real"></ion-img>
-            <div class="card-content">
-              <h3>Tiempo real</h3>
-              <p>Acceso a la información del reloj control de asistencia desde cualquier lugar y a través de distintos dispositivos en tiempo real.</p>
-            </div>
-          </div>
-        </ion-col>
+  <p class="subtitle">¿Qué necesitas hacer hoy?</p>
 
-        <ion-col size="12" size-md="6" size-lg="4" class="ion-padding">
-          <div class="card" style="max-width: 320px; margin: auto;">
-            <ion-img src="assets/img/icono2.png" alt="Reportes"></ion-img>
-            <div class="card-content">
-              <h3>Reportes</h3>
-              <p>Generación automática de diferentes informes y cálculos de asistencia exportables a partir de los datos del Reloj control de asistencia.</p>
-            </div>
-          </div>
-        </ion-col>
-
-        <ion-col size="12" size-md="6" size-lg="4" class="ion-padding">
-          <div class="card" style="max-width: 320px; margin: auto;">
-            <ion-img src="assets/img/icono3.png" alt="Estadísticas y KPI"></ion-img>
-            <div class="card-content">
-              <h3>Estadísticas y KPI</h3>
-              <p>Obtención de diferentes indicadores y estadísticas para medir el rendimiento de tu equipo.</p>
-            </div>
-          </div>
-        </ion-col>
-
-        <ion-col size="12" size-md="6" size-lg="4" class="ion-padding">
-          <div class="card" style="max-width: 320px; margin: auto;">
-            <ion-img src="assets/img/icono4.png" alt="Turnos inteligentes"></ion-img>
-            <div class="card-content">
-              <h3>Turnos inteligentes</h3>
-              <p>Creación de turnos inteligentes que se ajustan a los horarios de tus trabajadores de forma instantánea y se sincronizan con el reloj control de asistencia.</p>
-            </div>
-          </div>
-        </ion-col>
-
-        <ion-col size="12" size-md="6" size-lg="4" class="ion-padding">
-          <div class="card" style="max-width: 320px; margin: auto;">
-            <ion-img src="assets/img/icono5.png" alt="Servicio en la nube"></ion-img>
-            <div class="card-content">
-              <h3>Servicio en la nube</h3>
-              <p>Almacenamiento y resguardo de todos tus datos de manera segura. Incluye la actualización constante del software.</p>
-            </div>
-          </div>
-        </ion-col>
-
-        <ion-col size="12" size-md="6" size-lg="4" class="ion-padding">
-          <div class="card" style="max-width: 320px; margin: auto;">
-            <ion-img src="assets/img/icono6.png" alt="APP Móvil"></ion-img>
-            <div class="card-content">
-              <h3>APP Móvil</h3>
-              <p>Fácil registro de asistencia por medio del GPS, especial para trabajadores en terreno.</p>
-            </div>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </section>
+  <!-- Cuadrícula de botones -->
+  <ion-grid class="funcionalidades">
+    <ion-row>
+      <ion-col size="6">
+        <button class="custom-button">
+          <ion-icon name="person-add-outline"></ion-icon>
+        </button>
+        <p class="subtitle-button">REGISTRO DE ASISTENCIA</p>
+      </ion-col>
+      <ion-col size="6">
+        <button class="custom-button">
+          <ion-icon name="calendar-outline"></ion-icon>       
+        </button>
+        <p class="subtitle-button">GESTIÓN DE ACTIVIDADES</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <button class="custom-button">
+          <ion-icon name="document-text-outline"></ion-icon>
+        </button>
+        <p class="subtitle-button">INFORMES</p>
+      </ion-col>
+      <ion-col size="6">
+        <button class="custom-button">
+          <ion-icon name="person-outline"></ion-icon>
+        </button>
+        <p class="subtitle-button">PERFIL</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <button class="custom-button">
+          <ion-icon name="construct-outline"></ion-icon>
+        </button>
+        <p class="subtitle-button">HERRAMIENTAS ADMINISTRATIVAS</p>
+      </ion-col>
+      <ion-col size="6">
+        <button class="custom-button">
+          <ion-icon name="settings-outline"></ion-icon>
+        </button>
+        <p class="subtitle-button">CONFIGURACIÓN</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid> 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="custom-dark">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="home" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
