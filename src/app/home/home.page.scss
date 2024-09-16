@@ -1,0 +1,101 @@
+ion-content {
+  --background: #272E30;
+  
+}
+ion-header, ion-footer {
+  ion-toolbar {
+    --background: #1E1E1E;
+    --color: white;
+  }
+}
+
+
+.welcome-message{
+  background-color: #272E30;
+  color: #dc7de1;
+  margin-left: 125px;
+}
+
+
+.custom-menu-button {
+  color: white;
+  font-size: 24px;
+}
+
+.white-text {
+  color: white !important;
+}
+
+.main-title {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 1px;
+}
+
+
+//BOTONES DE OPCIONES
+.funcionalidades {
+  padding: 0 30px;
+
+  .custom-button {
+    width: 100px;
+    height: 100px;
+    background-color:#42316c;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+    margin-bottom: 5px;
+    margin-left: 35px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+    
+
+    ion-icon {
+      font-size: 4rem;
+      color: #ffff;
+    }
+  }
+
+  .subtitle-button {
+    color: white;
+    text-align: center;
+    font-size: small;
+    margin-bottom: 30px;
+    white-space: pre-wrap;
+    margin-left: 25px;
+
+  
+  }
+}
+
+ion-footer {
+  ion-toolbar {
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+
+    ion-buttons {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    ion-button {
+      --color: white;
+    }
+  }
+}

@@ -1,0 +1,133 @@
+/* App Global CSS for Ionic */
+
+/* Import necessary Ionic core CSS */
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+@import "@ionic/angular/css/flex-utils.css"; /* Flex utilities for layout control */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Belleza');
+
+/* Color Variables */
+:root {
+    --color1: #00a8e8; /* Main color (blue from the logo) */
+    --color2: #d141ff; /* Secondary color (purple from the logo) */
+    --color3: #ffffff; /* White background */
+    --color4: #333333; /* Dark text */
+    --color5: #757575; /* Dark gray text */
+}
+
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Belleza', sans-serif;
+    color: var(--color4); /* Dark text */
+}
+
+/* Header styling */
+.header {
+    background-color: var(--color1); /* Blue logo color */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    height: 60px; /* Adjust header height */
+    padding: 10px 0;
+}
+
+/* Header container */
+.contenedor-header {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+/* Logo in the header */
+.logo img {
+    width: 80px; /* Logo size */
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    color: var(--color3); /* White text */
+}
+
+/* Navigation bar */
+.navbar ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-around; /* Spacing between menu items */
+    font-size: 1rem;
+}
+
+.navbar ul li a {
+    color: var(--color3); /* White text */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.navbar ul li a:hover {
+    color: var(--color2); /* Purple hover color */
+}
+
+/* Search bar */
+ion-searchbar {
+    margin: 10px 0;
+    padding: 0 20px;
+    border: 1px solid var(--color1); /* Blue border */
+    border-radius: 10px;
+}
+
+/* Card styling */
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Space between cards */
+}
+
+.card img {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
+
+.card-content h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.card-content p {
+    margin-top: 10px;
+    color: #555;
+    font-size: 1rem;
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--color2); /* Purple */
+    color: var(--color4); /* Dark text */
+    padding: 50px 0 30px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}

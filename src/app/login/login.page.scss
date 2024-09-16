@@ -1,0 +1,126 @@
+ion-content {
+  --background: #272E30;
+}
+
+ion-header, ion-footer {
+  ion-toolbar {
+    --background: #1E1E1E;
+    --color: white;
+  }
+}
+
+.custom-menu-button {
+  color: white;
+  font-size: 24px;
+}
+
+.white-text {
+  color: white !important;
+}
+
+.main-title {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.login-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 90%;
+
+  ion-card-content {
+    padding: 20px;
+  }
+
+  ion-label {
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  ion-item {
+    --background: white;
+    --border-color: #d3d3d3;
+    --highlight-color-focused: #6200ee;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+
+    ion-input {
+      color: #333;
+      --padding-start: 10px;
+    }
+  }
+
+  //ESTILO BOTON INGRESAR LOGIN
+  .custom-login-button {
+    --background: #290046 ;
+    --color: white ;
+    --background-activated: #290046;
+    --background-focused: #290046;
+    --background-hover: #5600d1;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 10px;
+    font-size: 16px;
+    text-transform: uppercase;   
+   
+  }
+  
+  //TEXTO VISIBLE
+  .custom-login-button::part(native) {
+    color: white;
+  }
+}
+
+.forgot-password {
+  text-align: center;
+  
+  a {
+    color: #42316C;
+    text-decoration: none;
+  }
+}
+
+.create-account {
+  color: white;
+  margin-top: 20px;
+  margin-left: 45px;
+  
+  a {
+    color: #e6b1df;
+    text-decoration: none;
+  }
+}
+
+ion-footer {
+  ion-toolbar {
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+
+    ion-buttons {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    ion-button {
+      --color: white;
+    }
+  }
+}

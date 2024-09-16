@@ -1,0 +1,7 @@
+{
+  "name": "AppCheck",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar color="custom-dark">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-img src="assets/img/logo-check-app.png" style="width: 30px; height: 30px;"></ion-img>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center white-text">CheckApp</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="menu" slot="icon-only" class="custom-menu-button"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <h1 class="main-title">INICIO</h1>
+   <!-- Saludo al usuario -->
+
+    <ion-label class="welcome-message">Bienvenido {{username}}</ion-label>
+
+  <p class="subtitle">¿Qué necesitas hacer hoy?</p>
+
+  <!-- Cuadrícula de botones -->
+  <ion-grid class="funcionalidades">
+    <ion-row>
+      <ion-col size="6">
+        <button class="custom-button">
+          <ion-icon name="person-add-outline"></ion-icon>
+        </button>
+        <p class="subtitle-button">REGISTRO DE ASISTENCIA</p>
+      </ion-col>
+      <ion-col size="6">
+        <button class="custom-button">
+          <ion-icon name="calendar-outline"></ion-icon>       
+        </button>
+        <p class="subtitle-button">GESTIÓN DE ACTIVIDADES</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <button class="custom-button">
+          <ion-icon name="document-text-outline"></ion-icon>
+        </button>
+        <p class="subtitle-button">INFORMES</p>
+      </ion-col>
+      <ion-col size="6">
+        <button class="custom-button">
+          <ion-icon name="person-outline"></ion-icon>
+        </button>
+        <p class="subtitle-button">PERFIL</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <button class="custom-button">
+          <ion-icon name="construct-outline"></ion-icon>
+        </button>
+        <p class="subtitle-button">HERRAMIENTAS ADMINISTRATIVAS</p>
+      </ion-col>
+      <ion-col size="6">
+        <button class="custom-button">
+          <ion-icon name="settings-outline"></ion-icon>
+        </button>
+        <p class="subtitle-button">CONFIGURACIÓN</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid> 
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="custom-dark">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="home" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

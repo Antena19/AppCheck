@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color="custom-dark">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-img src="assets/img/logo-check-app.png" style="width: 30px; height: 30px;"></ion-img>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center white-text">CheckApp</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="menu" slot="icon-only" class="custom-menu-button"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <h1 class="main-title">LOGIN</h1>
+  <p class="subtitle">Inicia sesión para continuar</p>
+  
+  <ion-card class="login-card">
+    <ion-card-content>
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+        <!-- USUARIO -->
+        <ion-label>Usuario</ion-label>
+        <ion-item>
+          <ion-input 
+            [(ngModel)]="username" 
+            (ionFocus)="clearInput('username')" 
+            maxlength="8" 
+            minlength="3" 
+            required
+            placeholder="Ingresa tu usuario" 
+            autocomplete="off"
+            name="username">
+          </ion-input>
+        </ion-item>
+
+        <!-- CONTRASEÑA -->
+        <ion-label>Contraseña</ion-label>
+        <ion-item>
+          <ion-input 
+            [(ngModel)]="password" 
+            (ionFocus)="clearInput('password')" 
+            type="password" 
+            maxlength="4" 
+            required
+            placeholder="Ingresa tu contraseña" 
+            autocomplete="off"
+            name="password">
+          </ion-input>
+        </ion-item>
+        <ion-button expand="block" type="submit" [disabled]="!loginForm.valid" class="custom-login-button">
+          INGRESAR
+        </ion-button>
+        <ion-text class="forgot-password">
+          <p class="ion-text-center">
+            <a (click)="goToResetPassword()">¿Olvidaste tu contraseña? Restablecer aquí</a>
+          </p>
+        </ion-text>
+      </form>
+    </ion-card-content>
+  </ion-card>
+  
+  <p class="create-account ion-text-center">
+    ¿No tienes una cuenta? <a (click)="goToCreateAccount()">Crear cuenta nueva</a>
+  </p>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="custom-dark">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="home" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
