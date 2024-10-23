@@ -7,12 +7,14 @@
     </ion-buttons>
     <ion-title class="ion-text-center white-text">CheckApp</ion-title>
     <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon name="menu" slot="icon-only" class="custom-menu-button"></ion-icon>
+      <!-- Botón de cerrar sesión -->
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out-outline" slot="icon-only" class="custom-menu-button"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content class="ion-padding" [fullscreen]="true">
   <h1 class="main-title">INICIO</h1>

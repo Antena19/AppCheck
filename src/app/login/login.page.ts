@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular'; // Importamos Storage
+import { AutenticacionService } from '../services/autenticacion.service'; // Importa el servicio
+
 
 interface User {
   username: string;
@@ -19,8 +21,11 @@ export class LoginPage implements OnInit {
 
   constructor(
     private router: Router,
-    private storage: Storage // Inyectamos Storage
+    private storage: Storage, // Inyectamos Storage
+    private authService: AutenticacionService // Inyectamos el servicio de autenticación
   ) {}
+
+
 
   async ngOnInit() {
     // Inicializamos el storage
@@ -54,20 +59,20 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/registro']); // Asegúrate de que esta ruta sea correcta
   }
 
-  // Lógica de autenticación dentro del componente
+  //MÉTODO PARA LOGIN
   async login() {
     // Limpiar espacios en blanco
     this.username = this.username.trim();
     this.password = this.password.trim();
-
+  
     console.log('Username:', this.username);
     console.log('Password:', this.password);
-
+  
     let foundUser = false;
-
+  
     // Cargar usuarios del storage para asegurarse de tener la lista más actualizada
-    this.validUsers = await this.storage.get('users') || []; // Actualiza la lista de usuarios
-
+    this.validUsers = await this.storage.get('users') || []; // Mantén esta línea si gestionas los usuarios desde storage
+  
     // Verificar si el usuario existe en la lista de usuarios almacenados
     for (const user of this.validUsers) {
       console.log(`Comparando: ${user.username} con ${this.username} y ${user.password} con ${this.password}`);
@@ -77,17 +82,17 @@ export class LoginPage implements OnInit {
         break; // Salir del bucle si se encuentra el usuario
       }
     }
-
+  
     if (foundUser) {
-      await this.storage.set('username', this.username);
-      console.log('Almacenando nombre de usuario en el storage:', this.username);
-      this.router.navigate(['/home']);
+      await this.authService.iniciarSesion(this.username); // Usamos el servicio para guardar el estado de sesión
       console.log('Inicio de sesión exitoso.');
+      this.router.navigate(['/home']);
     } else {
       alert('Usuario o contraseña inválidos');
-      console.log('Error en inicio de sesión.'); 
+      console.log('Error en inicio de sesión.');
     }
   }
+  
 
   // Método para limpiar el input de usuario o contraseña
   clearInput(field: string) {
